@@ -1,4 +1,3 @@
-
 from datetime import datetime, timezone
 
 from sqlalchemy import String, Integer, DateTime
@@ -14,10 +13,16 @@ class User(Base):
         Integer, primary_key=True, index=True
     )
 
-    name: Mapped[str] = mapped_column(String(100), nullable=False)
+    name: Mapped[str] = mapped_column(
+        String(100), nullable=False
+    )
 
     email: Mapped[str] = mapped_column(
         String(255), unique=True, index=True, nullable=False
+    )
+
+    password_hash: Mapped[str | None] = mapped_column(
+        String(255), nullable=True
     )
 
     question_balance: Mapped[int] = mapped_column(
@@ -27,6 +32,21 @@ class User(Base):
     created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True),
         default=lambda: datetime.now(timezone.utc)
+    )
+
+    birth_datetime: Mapped[datetime | None] = mapped_column(
+        DateTime(timezone=True),
+        nullable=True,
+    )
+
+    birth_place: Mapped[str | None] = mapped_column(
+        String(255),
+        nullable=True,
+    )
+
+    timezone_name: Mapped[str | None] = mapped_column(
+        String(100),
+        nullable=True,
     )
 
     questions = relationship("Question", back_populates="user")

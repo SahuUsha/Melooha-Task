@@ -13,7 +13,7 @@ from app.services.chart_retrieval_service import get_user_chart_facts
 GEMINI_MODEL = "gemini-2.5-flash"
 GROQ_MODEL = "llama-3.3-70b-versatile"
 
-SIMILARITY_THRESHOLD = 0.47
+SIMILARITY_THRESHOLD = 0.40
 
 INSUFFICIENT_ANSWER = (
     "I don't have enough information in my available astrology "
