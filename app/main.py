@@ -14,7 +14,7 @@ app = FastAPI(
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["http://localhost:5173",
-       "https://melooha-frontend.vercel.app",
+        "https://melooha-frontend-five.vercel.app",
        ],
     allow_credentials=True,
     allow_methods=["*"],
